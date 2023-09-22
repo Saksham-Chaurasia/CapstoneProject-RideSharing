@@ -1,0 +1,10 @@
+---Hive connection with power bi ---
+Reference: https://towardsdatascience.com/connecting-apache-hive-to-microsoft-power-bi-d460e2278720
+
+
+1. run this hive --service hiveserver2
+
+....
+now everything is already set up
+
+changing the database

@@ -1,0 +1,15 @@
+hadoop starting servers----
+
+1. sudo su - hadoop 
+2. hdfs namenode -format
+3. start-dfs.sh --> start the hdfs server
+4. start-yarn.sh
+5. jps
+
+6. start-all.sh 
+7. stop-all.sh
+ui: 127.0.1.1
+
+http://localhost:9864   ---> default port --> datanode
+http://localhost:8088 --> hadoop cluster
+http://localhost:9870 --> namenode

@@ -1,0 +1,9 @@
+Spark_transformation_error:
+
+access denied in writing the csv data in hadoop hdfs location data. 
+
+1. just do this, 
+
+hadoop fs -chmod -R 777 /data
+
+

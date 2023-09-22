@@ -1,0 +1,31 @@
+--Hive storing ----
+
+
+
+1. Creating a database 
+
+* create database ride;
+
+* use ride;
+
+* set hive.cli.print.current.db=true;
+
+---------------
+
+2. creating tables
+
+* create table customer( string, `timestamp` timestamp, amount float) row format delimited fields terminated by ',' stored as textfile;
+
+
+
+---hive error---
+
+1.java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+
+just start : ** hive --service metastore 
+
+2. pyspark.errors.exceptions.captured.AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException: MetaException(message:Unable to create database path file:/user/hive/warehouse/ridesharing.db, failed to create database ridesharing)
+
+**  hadoop fs -chmod -R 777 /user
+
+

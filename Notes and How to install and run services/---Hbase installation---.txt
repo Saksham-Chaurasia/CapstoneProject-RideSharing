@@ -1,0 +1,167 @@
+---Hbase standalone installation---
+
+1. wget https://dlcdn.apache.org/hbase/2.4.17/hbase-2.4.17-bin.tar.gz
+
+2. tar xvzf hbase
+
+3. open hbase-env.sh and add this---
+
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+
+4. open ~/.bashrc file 
+
+add hbase home and path 
+
+export HBASE_HOME=/home/hadoop/hbase
+export PATH=$PATH:$HBASE_HOME/bin
+
+5. open hbase-site.xml and add the properties
+
+<property>
+
+<name>hbase.rootdir</name>
+
+<value>file:///home/hadoop/HBASE/hbase</value>
+
+</property>
+
+<property>
+
+<name>hbase.zookeeper.property.dataDir</name>
+
+<value>/home/hadoop/HBASE/zookeeper</value>
+
+</property>
+
+6. start hbase:
+
+hadoop@AcerPredator:~/hbase$ ./bin/start-hbase.sh
+
+
+7. jps
+
+
+8. hadoop@AcerPredator:~/hbase$ ./bin/hbase shell
+
+
+----Hbase psuedo distribution installation ----
+
+1.2.3 steps are same
+
+4. open hbase-env.sh 
+export hbase_regionserver and mng true
+
+5. open hbase-site.xml
+
+<property>
+
+<name>hbase.rootdir</name>
+
+<value>hdfs://localhost:9000/hbase</value>
+
+</property>
+
+<property>
+
+<name>hbase.cluster.distributed</name>
+
+<value>true</value>
+
+</property>
+
+<property>
+
+<name>hbase.zookeeper.quorum</name>
+
+<value>localhost</value>
+
+</property>
+
+<property>
+
+<name>dfs.replication</name>
+
+<value>1</value>
+
+</property>
+
+<property>
+
+<name>hbase.zookeeper.property.clientPort</name>
+
+<value>2181</value>
+
+</property>
+
+<property>
+
+<name>hbase.zookeeper.property.dataDir</name>
+
+<value>/home/hadoop/hbase/zookeeper</value>
+
+</property>
+
+
+6. now start the hadoop daemons first
+
+7. now start the hbase
+
+hadoop@AcerPredator:~/hbase$ ./bin/start-hbase.sh
+
+
+8. Hbase user interface --> localhost:16010/master-status
+
+
+
+Reference: https://www.guru99.com/hbase-installation-guide.html
+
+
+9. Refer only this --> https://www.tutorialspoint.com/hbase/hbase_installation.htm
+
+
+this one is correct 
+
+before 9 everything is wrong
+
+
+10. start and stop a master
+
+./bin/local-master-backup.sh 2 4
+
+$ cat /tmp/hbase-user-1-master.pid |xargs kill -9
+
+11. start and stop a region server
+
+.bin/local-regionservers.sh start 2 3
+
+.bin/local-regionservers.sh stop 3
+
+
+
+
+-------------------------Final hbase running ---------------------
+
+
+1. start-all.sh
+
+2. ./bin/start-hbase.sh
+
+3. ./bin/local-master-backup.sh start 2   ---> starting hbase master
+
+4. ./bin/./local-regionservers.sh start 3 ---> starting region 
+
+5. ./bin/hbase shell ---> start hbase shell
+
+
+export CLASSPATH=$CLASSPATH://home/hadoop/hbase/lib/*  ---> bashrc file
+
+source ~/.bashrc
+
+
+<property>
+  <name>hbase.wal.provider</name>
+  <value>filesystem</value>
+</property>
+
+

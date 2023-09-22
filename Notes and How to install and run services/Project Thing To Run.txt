@@ -1,0 +1,14 @@
+To run my whole things, 
+
+1. start-all.sh
+
+2. ./bin/nifi.sh start
+
+3. hive --servie metastore
+4. hive --service hiveserver2
+
+4. airflow db init
+
+5. airflow scheduler
+
+6. airflow webserver
