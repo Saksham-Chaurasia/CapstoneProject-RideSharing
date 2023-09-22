@@ -1,0 +1,36 @@
+<property>
+
+	<name> yarn.resourcemanager.webapp.address.rm1</name>
+	<value> master</value>
+</property>
+<property>
+
+	<name> yarn.resourcemanager.scheduler.address.rm2</name>
+	<value> slave1</value>
+</property>
+<property>
+
+	<name> yarn.resourcemanager.webapp.address.rm2</name>
+	<value> save1</value>
+</property>
+
+
+<property>
+       <name>yarn.application.classpath</name>
+       <value>
+$HADOOP_HOME/etc/hadoop:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME>
+       </value>
+    </property>
+
+
+
+
+
+
+cloudera ---
+
+mapred site.xml 
+
+
+
+rye

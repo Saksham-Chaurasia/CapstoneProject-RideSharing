@@ -1,0 +1,44 @@
+nifi error:
+
+1. hadoop@AcerPredator:~$ ls -l dataset
+total 12
+drwxr-xr-x 2 saksham saksham 4096 Sep  8 17:35 customer_data
+drwxr-xr-x 2 saksham saksham 4096 Sep  8 17:35 driver_data
+drwxr-xr-x 2 saksham saksham 4096 Sep  8 17:35 ride_data
+hadoop@AcerPredator:~$ ls -l dataset2
+total 12
+drwxr-xr-x 2 hadoop hadoop 4096 Sep  8 17:46 customer_data
+drwxr-xr-x 2 hadoop hadoop 4096 Sep  8 17:46 driver_data
+drwxr-xr-x 2 hadoop hadoop 4096 Sep  8 17:46 ride_data
+
+when i'm generating dataset by airflow, the main admin of the dataset is saksham, 
+
+so that dataset won't be able to transfer from nifi , because nifi is in hadoop admin
+
+--> To solve this we need to change the permission of that dataset file holder
+
+** sudo chown -R hadoop:hadoop /home/hadoop/dataset --> it will change the ownership to hadoop only , 
+
+--> so better way 
+
+** sudo chmod -R 777 dataset  --> by this both owner hadoop and saksham can access it, Rule: a file and directory only one owner can be possible at a time..
+
+--> permanent solution : updated in the code so everytime i run, i will get access of that directory
+
+import os
+import subprocess
+
+# Assuming your dataset directory is '/home/hadoop/dataset'
+dataset_path = '/home/hadoop/dataset'
+
+# Use subprocess to execute the chown command
+subprocess.run(['sudo', 'chown', '-R', 'hadoop:hadoop', dataset_path])
+
+# Optionally, you can also change permissions to make it accessible to everyone
+os.chmod(dataset_path, 0o777)
+
+
+problem after spark_generation --> saksham owner, 
+
+spark_transform --> hadoop owner to saksham permission denied hdfs
+

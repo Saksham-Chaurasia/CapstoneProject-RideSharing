@@ -1,0 +1,12 @@
+---permission problems solved--- 
+--now airflow is totally undercontrol
+
+just add the code into spark_generation_dataset:
+
+* sudo visudo
+
+* add this to remove asking permission to use sudo command by saksham : 
+
+saksham ALL=(ALL) NOPASSWD: ALL
+
+
