@@ -47,13 +47,13 @@ def spark_hive_store():
 
 
     # customer
-    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/customer' INTO TABLE rideSharing.customer")
+    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/customer' overwrite INTO TABLE rideSharing.customer")
     
     # driver
-    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/driver' INTO TABLE rideSharing.driver")
+    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/driver' overwrite INTO TABLE rideSharing.driver")
     
     # ride
-    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/ride' INTO TABLE rideSharing.ride")
+    spark.sql("LOAD DATA INPATH 'hdfs://localhost:9000/data/ride' overwrite INTO TABLE rideSharing.ride")
 
     
 

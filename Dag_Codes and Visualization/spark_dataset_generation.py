@@ -1,4 +1,4 @@
-from math import perm
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, lit, udf
 from pyspark.sql.types import StringType, FloatType
@@ -11,17 +11,18 @@ hadoop='hadoop'
 saksham = 'saksham'
 
 def permission(name):
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/ride_data")
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/ride_data/*")
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/customer_data")
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/customer_data/*")
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/driver_data")
-    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset/driver_data/*")
+    os.system(f"sudo chown -R {name}:{name} /home/hadoop/dataset")
 
+
+    # hadoop fs -setfacl -R -m user:saksham:rwx /data    ----> this command used in hadoop to give the access saksham only on data directory
+
+def hd_directory():
+    os.system(f"hadoop fs -rm -r /data/*")
 
 def spark_generate():
 
     permission(saksham)
+    hd_directory()
     
     spark = SparkSession \
     .builder \
