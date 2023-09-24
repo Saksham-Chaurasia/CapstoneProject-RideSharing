@@ -23,3 +23,4 @@ So , Datapipeline is created for which creating dataset , collects, process, sto
 # Many more ...
 # PPT proof of photos of airflow and services only pictures 
 https://www.canva.com/design/DAFuO1ppGsk/rOlKlXyWmcjTPwC9Wc-2Jg/edit?utm_content=DAFuO1ppGsk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+# Also GitLfs for large files by .gitattributes
