@@ -1,5 +1,9 @@
 # CapstoneProject-RideSharing
-Airflow, hadoop, hdfs, spark , power bi, orchestration pipeline with RideSharing 
+RideSharing analysis of ride data  of driver performance , customer perference and ride patterns. 
+So , Datapipeline is created for which creating dataset , collects, process, storing and visualization.
+
+
+Airflow,Apache Nifi,  hadoop, hdfs, spark , power bi, orchestration pipeline with RideSharing 
 
 
 # New Implementation
