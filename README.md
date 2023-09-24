@@ -19,7 +19,7 @@ So , Datapipeline is created for which creating dataset , collects, process, sto
 3. checking missing values in column
 
 # Ubuntu owner permission in code direct implementation
-# :earned about Power Bi many to many relationship problem how to correct it, from the root cause
+# Learned about Power Bi many to many relationship problem how to correct it, from the root cause
 # Many more ...
 # PPT proof of photos of airflow and services only pictures 
 https://www.canva.com/design/DAFuO1ppGsk/rOlKlXyWmcjTPwC9Wc-2Jg/edit?utm_content=DAFuO1ppGsk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
